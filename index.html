@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Faking Text</title>
+</head>
+<body>
+<h1>Ai là người đẹp trai nhất?</h1>
+<textarea name="" id="txt" cols="40" rows="5" onkeypress="fakeText();"></textarea>
+</body>
+</html>
+<script>
+    var a = ["","A","n","h"," ","A","k","i"," ","đ","ẹ","p"," ","t","r","a","i"," "
+        ,"s","i","ê","u"," ","c","ấ","p"," ","v","ũ"," ","t","r","ụ"];
+    var n = "";
+    function fakeText(){
+        var text = document.getElementById("txt").value;
+        var t=text.length;
+        if (t>0){
+            for (var i=1; i<=t;i++){
+                n = n+ a[i];
+                if(i==33){
+                    document.getElementById("txt").value = "";
+                    n ="";
+                }
+            }
+        }
+        document.getElementById("txt").value =n;
+        n ="";
+        setTimeout("fakeText()",1);
+    }
+</script>
